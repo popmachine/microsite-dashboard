@@ -4,8 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MicrositeController;
 use Illuminate\Support\Facades\Route;
 
+// Redirect unauthenticated users to login
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
