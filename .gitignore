@@ -22,3 +22,9 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Ignore all .sqlite files in database folder…
+/database/*.sqlite
+
+# …except this one:
+!/database/database.sqlite
