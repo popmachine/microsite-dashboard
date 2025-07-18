@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Page Spinner') }}</title>
+        <title>Page Spinner</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,9 +16,9 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div class="flex flex-col items-center">
-                <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="w-24 h-auto mb-2">
-                <h1 class="text-2xl font-semibold text-gray-800">Page Spinner</h1>
+            <div class="flex flex-col items-center space-y-3">
+                <h1 class="text-3xl font-bold text-gray-800 tracking-tight">Page Spinner</h1>
+                <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="w-28 h-auto">
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
