@@ -15,10 +15,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-900 antialiased">
-    <div style="background: red; color: white; padding: 10px; text-align: center;">
-        DEBUG: You are seeing guest.blade.php
-    </div>
-
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
         <div class="flex flex-col items-center space-y-3 mb-6">
             <h1 class="text-4xl font-extrabold text-gray-800 tracking-tight">Page Spinner</h1>
@@ -26,7 +22,7 @@
         </div>
 
         <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            {{ $slot }}
+            @yield('content')
         </div>
     </div>
 </body>
