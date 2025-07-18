@@ -16,10 +16,26 @@
 
     <style>
         h1#page-title {
-            font-size: 3rem; /* Bigger */
-            font-weight: 800;
-            color: #98c93c; /* Green */
+            font-size: 4rem;              /* Larger size */
+            font-weight: 800;             /* Extra bold */
+            color: #98c93c;               /* Custom green */
             font-family: 'Figtree', sans-serif;
+            text-align: center;
+        }
+
+        .login-logo {
+            max-width: 220px;             /* Scaled down logo */
+            height: auto;
+        }
+
+        @media (min-width: 640px) {
+            h1#page-title {
+                font-size: 5rem;          /* Even larger on desktop */
+            }
+
+            .login-logo {
+                max-width: 240px;
+            }
         }
     </style>
 </head>
@@ -28,7 +44,7 @@
         <!-- Title & Logo -->
         <div class="flex flex-col items-center mb-8 space-y-4">
             <h1 id="page-title">Page Spinner</h1>
-            <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="w-32 max-w-xs h-auto">
+            <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="login-logo">
         </div>
 
         <!-- Login Form -->
