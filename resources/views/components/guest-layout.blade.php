@@ -18,8 +18,7 @@
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-10">
         <!-- Title & Logo -->
         <div class="flex flex-col items-center mb-8 space-y-4">
-            <h1 class="text-5xl font-bold text-gray-900">Page Spinner</h1>
-            <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="w-48 max-w-xs h-auto">
+<h1 class="text-7xl font-extrabold text-gray-800 tracking-tight font-title">Page Spinner</h1>            <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="w-48 max-w-xs h-auto">
         </div>
 
         <!-- Login Form -->
