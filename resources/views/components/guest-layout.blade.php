@@ -21,11 +21,13 @@
             color: #98c93c;
             font-family: 'Figtree', sans-serif;
             text-align: center;
+            text-transform: uppercase;
         }
 
         .login-logo {
-            max-width: 200px;
+            max-width: 180px;
             height: auto;
+            margin: 0 auto 1rem auto;
         }
 
         @media (min-width: 640px) {
@@ -34,25 +36,21 @@
             }
 
             .login-logo {
-                max-width: 220px;
+                max-width: 200px;
             }
-        }
-
-        .title-logo-wrapper {
-            margin-bottom: 6rem; /* Reduced from 8rem */
         }
     </style>
 </head>
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-10">
-        <!-- Title & Logo -->
-        <div class="flex flex-col items-center title-logo-wrapper space-y-4">
-            <h1 id="page-title">PAGE SPINNER</h1>
-            <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="login-logo">
-        </div>
+        <!-- Title -->
+        <h1 id="page-title">Page Spinner</h1>
 
-        <!-- Login Form -->
-        <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <!-- Logo & Login Form -->
+        <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg mt-6">
+            <div class="flex justify-center mb-4">
+                <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="login-logo">
+            </div>
             {{ $slot }}
         </div>
     </div>
