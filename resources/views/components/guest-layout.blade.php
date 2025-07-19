@@ -12,7 +12,8 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
 
     <!-- Styles and Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+<script src="{{ asset('build/assets/app.js') }}" defer></script>
 
     <style>
         h1#page-title {
