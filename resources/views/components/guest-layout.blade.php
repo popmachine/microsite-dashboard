@@ -16,34 +16,38 @@
 
     <style>
         h1#page-title {
-            font-size: 4rem;              /* Larger size */
-            font-weight: 800;             /* Extra bold */
-            color: #98c93c;               /* Custom green */
+            font-size: 4rem;
+            font-weight: 800;
+            color: #98c93c;
             font-family: 'Figtree', sans-serif;
             text-align: center;
         }
 
         .login-logo {
-            max-width: 220px;             /* Scaled down logo */
+            max-width: 200px;
             height: auto;
         }
 
         @media (min-width: 640px) {
             h1#page-title {
-                font-size: 5rem;          /* Even larger on desktop */
+                font-size: 5rem;
             }
 
             .login-logo {
-                max-width: 240px;
+                max-width: 220px;
             }
+        }
+
+        .title-logo-wrapper {
+            margin-bottom: 6rem; /* Reduced from 8rem */
         }
     </style>
 </head>
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-10">
         <!-- Title & Logo -->
-        <div class="flex flex-col items-center mb-8 space-y-4">
-            <h1 id="page-title">Page Spinner</h1>
+        <div class="flex flex-col items-center title-logo-wrapper space-y-4">
+            <h1 id="page-title">PAGE SPINNER</h1>
             <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="login-logo">
         </div>
 
