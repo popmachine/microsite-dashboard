@@ -27,3 +27,6 @@ Thumbs.db
 
 # …except this one:
 !/database/database.sqlite
+# Un-ignore build folder
+!public/build/
+!public/build/**/*
