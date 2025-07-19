@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use App\Models\Microsite;
 
 class MicrositeController extends Controller
@@ -37,18 +39,39 @@ class MicrositeController extends Controller
     {
         $microsite = Microsite::findOrFail($id);
 
-        // Simulate WPCS API call response
-        $microsite->status = 'active';
-        $microsite->launched_at = now();
+        // Prepare API parameters
+        $token = config('services.dollie.token');
+        $baseUrl = rtrim(config('services.dollie.base_url'), '/');
+        $blueprintId = config('services.dollie.blueprint_id');
 
-        $domain = $microsite->domain_name;
-        $microsite->admin_url = "https://{$domain}/wp-admin";
-        $microsite->editor_url = "https://{$domain}/editor";
-        $microsite->public_url = "https://{$domain}";
+        // Make request to Dollie API
+        $response = Http::withToken($token)->post("{$baseUrl}/api/v1/sites", [
+            'blueprint_id'  => $blueprintId,
+            'site_name'     => $microsite->domain_name,
+            'custom_domain' => $microsite->domain_name,
+        ]);
 
-        $microsite->save();
+        if ($response->successful()) {
+            $data = $response->json();
 
-        return redirect()->route('microsites.index')->with('success', 'Microsite launched!');
+            $microsite->status = 'active';
+            $microsite->launched_at = now();
+            $microsite->admin_url = $data['login_url'] ?? $data['url'] . '/wp-admin';
+            $microsite->editor_url = $data['url'] . '/editor';
+            $microsite->public_url = $data['url'];
+            $microsite->save();
+
+            return redirect()->route('microsites.index')->with('success', 'Microsite launched successfully!');
+        } else {
+            // Log error with context
+            Log::error('Dollie site provisioning failed', [
+                'microsite_id' => $microsite->id,
+                'domain'       => $microsite->domain_name,
+                'response'     => $response->body(),
+            ]);
+
+            return redirect()->route('microsites.index')->with('error', 'Site provisioning failed. Please check logs.');
+        }
     }
 
     public function show($id)

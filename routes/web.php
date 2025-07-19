@@ -42,3 +42,12 @@ Route::get('/register', function () {
 Route::post('/register', function () {
     abort(404);
 });
+use App\Http\Controllers\MicrositeController;
+
+Route::middleware('auth')->group(function () {
+    Route::get('/microsites', [MicrositeController::class, 'index'])->name('microsites.index');
+    Route::get('/microsites/create', [MicrositeController::class, 'create'])->name('microsites.create');
+    Route::post('/microsites', [MicrositeController::class, 'store'])->name('microsites.store');
+    Route::get('/microsites/{id}', [MicrositeController::class, 'show'])->name('microsites.show');
+    Route::post('/microsites/{id}/launch', [MicrositeController::class, 'launch'])->name('microsites.launch');
+});
