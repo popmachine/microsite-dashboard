@@ -14,6 +14,7 @@
         <!-- Styles & Scripts -->
         <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
         <script src="{{ asset('build/assets/app.js') }}" defer></script>
+
         <style>
             .login-logo {
                 width: 160px;
@@ -41,6 +42,9 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-10">
+            <!-- TEMP TEST -->
+            <div class="mb-4 text-red-600 font-bold">TEST LAYOUT RENDER</div>
+
             <div class="flex flex-col items-center title-logo-wrapper space-y-4">
                 <h1 id="page-title">Page Spinner</h1>
                 <img src="{{ asset('images/client-logo.png') }}" alt="Client Logo" class="login-logo">
